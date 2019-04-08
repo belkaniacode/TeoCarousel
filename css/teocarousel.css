@@ -1,0 +1,73 @@
+#teocarousel {
+  margin: 0 auto;
+  overflow: hidden;
+  margin-top: 10%;
+}
+.slide {
+  --webkit-transition: all .2s;
+    -o-transition: all .2s;
+    transition: all .2s;
+}
+.teo-items-container {
+  position: relative;
+  left:0;
+
+}
+.teo-items-container:after {
+  content:"";
+  display: block;
+  clear: both;
+}
+.teo-item {
+  float: left;
+  width: 200px;
+  margin-left: 3px;
+  margin-right: 3px;
+  padding: 4px 4px 1px 4px;
+  background: #ccc;
+  cursor: pointer;
+}
+.teo-item p {
+  text-align: center;
+  color: #333;
+}
+.teo-item img {
+  width: 100%;
+  height: auto;
+}
+
+.arrows {
+    margin-top: -14%;
+}
+.arrows .act {
+  width: 42px;
+  height: 42px;
+  position: absolute;
+  cursor: pointer;
+  background-color: #333;
+
+
+}
+.arrows .act:hover {
+  background-color: #000;
+}
+.arrows .left {
+  -webkit-mask: url(../img/left.svg) no-repeat;
+ mask: url(../img/left.svg) no-repeat;
+ background-size: 42px 42px;
+ left: 10px;
+}
+
+.arrows .right {
+  -webkit-mask: url(../img/right.svg) no-repeat;
+ mask: url(../img/right.svg) no-repeat;
+ background-size: 42px 42px;
+ right: 10px;
+
+}
+
+.transition {
+  --webkit-transition: all .2s;
+    -o-transition: all .2s;
+    transition: all .2s;
+}
