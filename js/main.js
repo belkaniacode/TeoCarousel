@@ -1,8 +1,7 @@
 var Teo = new TeoCarousel();
 
-teoParams = {
-  id : "teocarousel",
-  itemCnt : "teo-item",
+Params = {
+  class : "items",
   items : 3
 }
 
