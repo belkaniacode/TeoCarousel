@@ -3,42 +3,33 @@ body {
   justify-content: center;
   align-items: center;
 }
-.items {
-  margin-top: 10%;
-  align-items: center;
 
-  overflow-x: hidden;
+.carousel {
+  display: flex;
+  overflow-x:  hidden;
   overflow-y: hidden;
   cursor: pointer;
   user-select: none;
-  position: relative;
-  display: flex;
-  flex-wrap: nowrap;
-  border:1px solid black;
-
-
+  margin-top: 8%;
 }
 
-.smooth {
-  scroll-behavior: smooth;
+.items {
+  display: flex;
+  left:0;
+  position: relative;
 }
 
 .item {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
-  left: 0;
-  background: #730090;
-  color: #fff;
+  text-align: center;
   width: 200px;
   height: 200px;
-  font-size: 48px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex: 0 0 auto;
+  background: #2C4DE1;
   margin: 0 3px 0 3px;
-
-  --webkit-transition: all 1s;
-    -o-transition: all 1s;
-    transition: all 1s;
-
+  font-size: 62px;
+  color: #fff;
+  flex: 0 0 auto;
 }

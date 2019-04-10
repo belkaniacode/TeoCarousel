@@ -1,7 +1,7 @@
 var Teo = new TeoCarousel();
 
 Params = {
-  class : "items",
+  class : "carousel",
   items : 3
 }
 
