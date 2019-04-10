@@ -4,13 +4,22 @@ body {
   align-items: center;
 }
 
+.teo-carousel {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8%;
+}
+
 .carousel {
   display: flex;
   overflow-x:  hidden;
   overflow-y: hidden;
   cursor: pointer;
   user-select: none;
-  margin-top: 8%;
+  z-index: 100;
+  border:solid 1px black;
 }
 
 .items {
@@ -23,7 +32,6 @@ body {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  position: relative;
   text-align: center;
   width: 200px;
   height: 200px;
@@ -32,4 +40,42 @@ body {
   font-size: 62px;
   color: #fff;
   flex: 0 0 auto;
+}
+
+.arrows {
+  position: absolute;
+  width: 100%;
+  height: 100px;
+  z-index: 50;
+  margin-top: 2%;
+  display: none;
+}
+
+.left-arrow {
+  position: absolute;
+  left: 40px;
+  width: 42px;
+  height: 42px;
+  -webkit-mask: url(../img/left.svg) center / contain no-repeat;
+  background-size: 42px 42px;
+  cursor: pointer;
+}
+
+.right-arrow {
+  position: absolute;
+  right: 40px;
+  width: 42px;
+  height: 42px;
+  -webkit-mask: url(../img/right.svg) center / contain no-repeat;
+  background-size: 42px 42px;
+  cursor: pointer;
+
+}
+.arrow-hover {
+  background: #000;
+   transition: all  ease 0.3s;
+
+}
+.arrow-hover:hover {
+  background: #333;
 }

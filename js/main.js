@@ -1,8 +1,9 @@
 var Teo = new TeoCarousel();
 
 Params = {
-  class : "carousel",
-  items : 3
+  class : "teo-carousel",
+  items : 4,
+  arrows : true
 }
 
 Teo.create();
