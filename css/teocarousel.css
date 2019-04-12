@@ -7,19 +7,23 @@ body {
 .teo-carousel {
   width: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
   margin-top: 8%;
 }
 
 .carousel {
   display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
   overflow-x:  hidden;
   overflow-y: hidden;
   cursor: pointer;
   user-select: none;
   z-index: 100;
-  border:solid 1px black;
 }
 
 .items {

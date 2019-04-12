@@ -12,22 +12,42 @@ class TeoCarousel {
     const items_cnt = slider.firstElementChild;
     const arrowLeft =  arrowsCont.querySelector('.left-arrow');
     const arrowRight = arrowsCont.querySelector('.right-arrow');
+    const item = items_cnt.firstElementChild;
+    const item_arr = items_cnt.children;
+    const item_w = item.clientWidth;
+    const item_m = item.offsetLeft;
 
-    let item = items_cnt.firstElementChild;
-    let item_arr = items_cnt.children;
-    let item_w = item.clientWidth;
-    let item_m = item.offsetLeft;
-    let item_offsetLeft = [];
     let isArrows = Params.arrows;
+    let item_offsetLeft = [];
     let park = item_m;
-
-    slider.style.width = ((item_w + item_m * 2) * Params.items)+"px";
 
     for (let i = 0; i < item_arr.length; i++) {
       item_offsetLeft.push(item_arr[i].offsetLeft);
     }
 
-    const parkItem = (arr, search) => {
+    let items;
+    let parkCount;
+
+    let responsive = (_w) => {
+      if (_w > 980)   items = Params.items;
+      if (_w <= 980)  items = Params.items_980;
+      if (_w <= 640) {
+        items = Params.items_640;
+        if (Params.hide_arrows_640) isArrows = false;
+      }
+      if (_w <= 580)  items = Params.items_580;
+
+      slider.style.width = ((item_w + item_m * 2) * items)+"px";
+      parkCount = item_offsetLeft.length - items;
+    }
+
+    responsive(window.innerWidth);
+
+    window.addEventListener('resize', () => {
+      responsive(window.innerWidth);
+    });
+
+    let parkItem = (arr, search) => {
       park = arr.find(it =>
          Math.abs(it - search) === Math.min(...arr.map(it =>
            Math.abs(it - search))
@@ -69,34 +89,32 @@ class TeoCarousel {
       slider.scrollLeft = scrollLeft - walk;
     });
 
-
     /*Arrows*/
-    if (isArrows) arrowsCont.style.display = "block";
 
-    let parkCount = item_offsetLeft.length - Params.items;
+    if (isArrows) {
 
-    arrowLeft.addEventListener('click', () => {
+      arrowsCont.style.display = "block";
 
-      let parkPos = (park + item_m) - item_w;
-      if (park === item_offsetLeft[0])
-          parkPos = item_offsetLeft[parkCount];
+      arrowLeft.addEventListener('click', () => {
+        let parkPos = (park + item_m) - item_w;
+        if (park === item_offsetLeft[0])
+            parkPos = item_offsetLeft[parkCount];
+        parkItem(item_offsetLeft,  parkPos);
+      });
 
-      parkItem(item_offsetLeft,  parkPos);
+      arrowRight.addEventListener('click', () => {
+        let parkPos;
+        if (park === item_offsetLeft[parkCount]) {
+            parkPos = item_offsetLeft[0];
+        } else {
+            parkPos = (park + item_m) + item_w;
+        }
+        parkItem(item_offsetLeft,  parkPos);
+      });
 
-    });
+    }
 
-    arrowRight.addEventListener('click', () => {
 
-      let parkPos;
-      if (park === item_offsetLeft[parkCount]) {
-          parkPos = item_offsetLeft[0];
-      } else {
-          parkPos = (park + item_m) + item_w;
-      }
-
-      parkItem(item_offsetLeft,  parkPos);
-
-    });
 
 
   }
